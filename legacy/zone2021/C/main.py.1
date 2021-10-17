@@ -1,0 +1,26 @@
+N=int(input())
+ABCDE=[tuple(map(int,input().split())) for i in range(N)]
+
+def check(n):
+    s=set()
+    for i in range(N):
+        s.add(sum([1<<j for j in range(5) if ABCDE[i][j] >=n ]))
+    
+    for i in s:
+        for j in s:
+            for k in s:
+                if i|j|k==31:
+                    return True
+    return False
+
+
+Min=0
+Max=int(1e9+4)
+
+while Max-Min!=1:
+    now=(Max+Min)//2
+    if check(now):
+        Min=now
+    else:
+        Max=now
+print(Min)
