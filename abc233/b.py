@@ -1,4 +1,4 @@
-
+import math
 import sys  # 追加
 sys.setrecursionlimit(500*500)
 
@@ -17,21 +17,9 @@ def nz(): return list(map(lambda x: int(x)-1, stdin.readline().split()))
 
 MOD = int(1e9+7)
 
-N, Q = na()
-A = na()
 
-A.sort()
+L, R = na()
+S = ns()
 
-for i in range(Q):
-    x = ni()
 
-    Min = -1
-    Max = N
-    while Max-Min != 1:
-        now = (Min+Max)//2
-        if A[now] >= x:
-            Max = now
-        else:
-            Min = now
-
-    print(N-Min-1)
+print(S[:L-1]+''.join(reversed(list(S[L-1:R])))+S[R:])

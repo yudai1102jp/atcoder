@@ -1,5 +1,11 @@
-
+# mergesort
+import math
 import sys  # 追加
+import random
+
+# 統合部
+
+
 sys.setrecursionlimit(500*500)
 
 stdin = sys.stdin
@@ -17,6 +23,12 @@ def nz(): return list(map(lambda x: int(x)-1, stdin.readline().split()))
 
 MOD = int(1e9+7)
 
-D = ni()
 
-print(D/100)
+X, Y = na()
+
+print(max(0, math.ceil((Y-X)/10)))
+
+
+print(A)
+mergesort(A, 0, len(A))
+print(A)
